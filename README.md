@@ -1,6 +1,10 @@
 conda create -p venv python==3.12
 
+To activate environment
 conda activate venv 
+
+To deactivate environment
+conda deactivate
 
 pip install -r requirements.txt
 
