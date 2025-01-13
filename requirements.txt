@@ -1,1 +1,3 @@
-ipykernal
+pandas
+matplotlib
+sqlite3
