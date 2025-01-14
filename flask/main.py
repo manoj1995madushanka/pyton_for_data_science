@@ -25,7 +25,6 @@ def form():
     if request.method == 'POST':
         name = request.form['name']
         return f'Hello {name}'
-        pass
     return render_template('form.html')
 
 
