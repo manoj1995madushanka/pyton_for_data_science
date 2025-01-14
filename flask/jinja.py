@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 
 # create an instance of the flask class
 # which will be your WSGI application
@@ -49,6 +49,19 @@ def successres(score):
         res = "FAIL"
     exp = {'score': score, "res": res}
     return render_template('resultres.html', results=exp)
+
+
+@app.route("/submitmarks", methods=['GET', 'POST'])
+def submitmarks():
+    total_score = 0
+    if request.method == 'POST':
+        science = float(request.form['science'])
+        maths = float(request.form['maths'])
+        c = float(request.form['c'])
+        datascience = float(request.form['datascience'])
+
+        total_score = (science + maths + c + datascience) / 4
+    return redirect(url_for('success', score=total_score))
 
 
 if __name__ == "__main__":
